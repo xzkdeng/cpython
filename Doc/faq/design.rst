@@ -262,7 +262,21 @@ Why isn't there a switch or case statement in Python?
 In general, structured switch statements execute one block of code
 when an expression has a particular value or set of values.
 Since Python 3.10 one can easily match literal values, or constants
-within a namespace, with a ``match ... case`` statement.
+within a namespace, with a ``match ... case`` statement, like this::
+
+   command='a'
+   match command:
+       case 'a':
+           function_1()
+       case 'b':
+           function_2()
+       case 'c':
+           self.method_1()
+       case _:   # "_" is a wildcard here.
+           print('invalid command')
+
+See :pep:`636` for details.
+
 An older alternative is a sequence of ``if... elif... elif... else``.
 
 For cases where you need to choose from a very large number of possibilities,
